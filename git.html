@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <button></button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
-    
+    <div>
+        <input type="text" id="check">
+        <button onclick="checkAttendance()">출석 확인</button>
+    </div>
+
+    <script>
+        // 이름 목록을 포함한 출석부 배열 정의
+        var 출석부 = ["은우", "중기", "공유", "동욱"];
+
+        // 출석 확인 함수
+        function checkAttendance() {
+
+            var nameToCheck = document.getElementById("check").value.trim(); // 앞뒤 공백 제거
+            if (nameToCheck === "") {
+                alert("이름을 입력하세요.");
+                return;
+            }
+            if (출석부.includes(nameToCheck)) {
+                alert("출석");
+            } else {
+                alert("불출석");
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    </script>
 </body>
+
 </html>
