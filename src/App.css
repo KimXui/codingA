@@ -1,15 +1,16 @@
-.main-bg{
+.main-bg {
   height: 300px;
   background-image: url(/src/img/bg.jpg);
-  background-size : cover;
-  background-position : center;
+  background-size: cover;
+  background-position: center;
 }
-.Event_bg{
+
+.Event_bg {
   height: 300px;
   background-image: url(/src/img/eventbg.jpg);
-  background-size : cover;
-  background-position : center;
- 
+  background-size: cover;
+  background-position: center;
+
 }
 
 
@@ -47,7 +48,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: opacity 0.5s;
 }

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
+import { useDispatch } from "react-redux";
 import axios, { Axios } from "axios";
+import { addItem } from "./store";
+
 
 function Detail(props) {
   let { id } = useParams();
   let [count, setcount] = useState(0);
+  let dispatch = useDispatch();
 
   useEffect(() => {
     let a = setTimeout(() => {
@@ -41,21 +45,13 @@ function Detail(props) {
 
           <img
             src={props.shoes.sort((a, b) => a.id - b.id)[parseInt(id)].img}
-            width="100%"
-          />
-        </div>
-        <div className="col-md-6">
+            width="100%"></img>
           <h4 className="pt-5">{props.shoes[id].title}</h4>
           <p>{props.shoes[id].content}</p>
           <p>{props.shoes[id].price}</p>
-          <button className="btn btn-danger">주문하기</button>
-         
-          
-          
-
-
-
-
+          <button className="btn btn-danger" onClick={() => {
+            dispatch(addItem({ id: id, name: props.shoes[id].title, count:0 }));
+          }}>주문하기</button>
         </div>
       </div>
     </div>

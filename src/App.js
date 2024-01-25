@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import data from "./Pages/data.js";
 import { Route, Routes, Link, useNavigate, Outlet } from "react-router-dom";
-import Detail from "./Pages/detail.js";
-import Event from "./Pages/event.js";
 
 import axios from "axios";
+
+import Detail from "./Pages/detail.js";
+import Event from "./Pages/event.js";
+import Cart from "./Pages/cart.js"
+
 
 
 function App() {
@@ -49,6 +52,13 @@ function App() {
               }}
             >
               Detail
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Cart
             </Nav.Link>
           </Nav>
         </Container>
@@ -100,6 +110,8 @@ function App() {
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route path="*" element={<div>404_not_found_X</div>} />
         <Route path="/event" element={<Event />} />
+        <Route path="/cart" element={<Cart />} />
+
           
         
       </Routes>

@@ -38,6 +38,31 @@ function Event() {
 }
 
 
+function TabContent({ 탭 }) {
+  let [fade, setFade] = useState('');
+
+  useEffect(() => {
+    setFade(''); // 초기화
+    const timeoutId = setTimeout(() => {
+      setFade('end');
+    }, 100);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [탭.length]);
+
+  return (
+    <div className={'start ' + fade}>
+      {[
+        <div>내용0</div>,
+        <div>내용1</div>,
+        <div>내용2</div>
+      ][탭]}
+    </div>
+  );
+}
+
+
 
 function TabComponent(props) {
   if (props.Tab == 0) {
